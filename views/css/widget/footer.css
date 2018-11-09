@@ -1,0 +1,13 @@
+.footer-holder {
+    height: 300px;
+    background-color: #424e60;
+    display: flex;
+
+}
+
+.footer-holder .column {
+    margin-top: 15px;
+    width: 33%;
+    display: flex;
+    color: #fff;
+}

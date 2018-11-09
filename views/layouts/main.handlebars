@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+    <link rel="stylesheet" type="text/css" href="./views/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./views/css/widget/header.css">
+    <link rel="stylesheet" type="text/css" href="./views/css/widget/footer.css">
+</head>
+<body>
+<header>
+    {{#> widgets/header}}{{/widgets/header}}
+</header>
+    <div class="body-holder">
+        {{{body}}}
+    </div>
+    <div class="ads-holder">
+        {{#> widgets/ads}}{{/widgets/ads}}
+    </div>
+<footer>
+    {{#> widgets/footer}}{{/widgets/footer}}
+</footer>
+
+</body>
+</html>

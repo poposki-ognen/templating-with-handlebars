@@ -1,0 +1,18 @@
+
+html {
+    background-color: #fcfcfc;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.body-holder {
+    width: 80%;
+    background: red;
+}
+.ads-holder {
+    background: blue;
+    width: 20%;
+}
