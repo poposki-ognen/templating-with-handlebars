@@ -1,0 +1,11 @@
+.main-news-holder {
+    display: flex;
+}
+.main-news-image-holder img {
+    max-height: 300px;
+}
+
+.main-news-details-holder {
+    margin-left: 15px;
+    margin-right: 30px;
+}

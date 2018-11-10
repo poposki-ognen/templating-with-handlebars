@@ -3,11 +3,20 @@
         <img src="{{imageUrl}}"/>
     </div>
     <div class="main-news-details-holder">
+        <a href="{{url}}">
         <div class="main-news-title">
             {{title}}
         </div>
+        </a>
+        <a href="{{url}}">
         <div class="main-news-text">
-            <!--TO DO: IMPLEMENT HELPER FUNCTION HERE-->
-        </div>
+                {{#if (lte text.length 600)}}
+                    <span> {{text}}</span>
+                {{/if}}
+                {{#unless (gt title.length 600)}}
+                    <span>{{substring text 600 }}</span>
+                {{/unless}}
+            </div>
+        </a>
     </div>
 </div>

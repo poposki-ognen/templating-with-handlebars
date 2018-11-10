@@ -8,13 +8,14 @@ const NewsGenerator = {
             imageUrl: "",
             author: "",
             text: "",
-            shortText: ""
+            url: ""
         }
 
         generatedNews.title = faker.name.title();
         generatedNews.imageUrl = faker.image.imageUrl();
         generatedNews.author = faker.name.findName();
         generatedNews.text = faker.lorem.text();
+        generatedNews.url = "/news";
         return generatedNews;
     },
     generateMultiple: function (n) {

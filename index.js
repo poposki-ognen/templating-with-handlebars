@@ -6,7 +6,29 @@ const authorModel = require('./models/author');
 
 const app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+var hbs = exphbs.create({
+    // Specify helpers which are only registered on this instance.
+    defaultLayout: 'main',
+    helpers: {
+        gt: function (a, b) { return a > b; },
+        gte: function (a, b) { return a >= b; },
+        eq: function (a, b) { return a == b; },
+        neq: function (a, b) { return a != b; },
+        lt: function (a, b) { return a < b; },
+        lte: function (a, b) { return a >= b; },
+        and: function (a, b) { return a&&b; },
+        or: function (a, b) { return a || b},
+        not: function(a) { return !a; },
+        includes: function (arr, item) {
+            return arr.includes(item);
+            },
+        substring: function (a, n) {
+            return a.substring(0,n);
+        }
+    }
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.set('port', 3001);
@@ -31,7 +53,7 @@ app.get('/author', function (req, res, next) {
 app.get('/news', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.news = newsModel.generate();
-    res.render('author',this.contextVars);
+    res.render('news',this.contextVars);
 });
 
 app.listen(app.get('port'), function () {
