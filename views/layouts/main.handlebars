@@ -4,19 +4,24 @@
     <meta charset="utf-8">
     <title>Example App</title>
     <link rel="stylesheet" type="text/css" href="./views/css/main.css">
-    <link rel="stylesheet" type="text/css" href="./views/css/widget/header.css">
-    <link rel="stylesheet" type="text/css" href="./views/css/widget/footer.css">
-    <link rel="stylesheet" type="text/css" href="./views/css/widget/widget-main-news.css">
+    {{#each pageCss}}
+        <link rel="stylesheet" type="text/css" href="./views/css/page/{{this}}.css">
+    {{/each}}
+    {{#each widgetCss}}
+    <link rel="stylesheet" type="text/css" href="./views/css/widget/{{this}}.css">
+    {{/each}}
 </head>
 <body>
 <header>
     {{#> widgets/header}}{{/widgets/header}}
 </header>
-    <div class="body-holder">
-        {{{body}}}
-    </div>
-    <div class="ads-holder">
-        {{#> widgets/ads}}{{/widgets/ads}}
+    <div class="main-content-holder">
+        <div class="body-holder">
+            {{{body}}}
+        </div>
+        <div class="ads-holder">
+            {{#> widgets/ads}}{{/widgets/ads}}
+        </div>
     </div>
 <footer>
     {{#> widgets/footer}}{{/widgets/footer}}

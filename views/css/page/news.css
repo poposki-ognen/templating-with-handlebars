@@ -1,0 +1,9 @@
+.news-image-holder {
+    display: inline;
+}
+.news-image-holder img {
+    max-height: 300px;
+}
+.news-text-holder {
+    display: inline;
+}

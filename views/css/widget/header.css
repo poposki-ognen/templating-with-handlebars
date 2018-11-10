@@ -1,3 +1,22 @@
 header {
     height: 150px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #424e60;
+}
+
+.header-menu-items ul {
+    list-style: none;
+    display: flex;
+}
+
+.header-menu-items ul li {
+    margin-right: 15px;
+    color: white;
+}
+.header-menu-items ul li a{
+    color: white;
+    text-decoration: none;
 }

@@ -10,11 +10,11 @@
         </a>
         <a href="{{url}}">
         <div class="main-news-text">
-                {{#if (lte text.length 600)}}
+                {{#if (lte text.length 400)}}
                     <span> {{text}}</span>
                 {{/if}}
-                {{#unless (gt title.length 600)}}
-                    <span>{{substring text 600 }}</span>
+                {{#unless (gt title.length 400)}}
+                    <span>{{cutText text 400 }}</span>
                 {{/unless}}
             </div>
         </a>

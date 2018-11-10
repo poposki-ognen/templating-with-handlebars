@@ -12,9 +12,9 @@ const NewsGenerator = {
         }
 
         generatedNews.title = faker.name.title();
-        generatedNews.imageUrl = faker.image.imageUrl();
+        generatedNews.imageUrl = "https://www.logolynx.com/images/logolynx/18/18d044244c2f0215e1023fc331efb601.png";
         generatedNews.author = faker.name.findName();
-        generatedNews.text = faker.lorem.text();
+        generatedNews.text = faker.lorem.paragraphs();
         generatedNews.url = "/news";
         return generatedNews;
     },

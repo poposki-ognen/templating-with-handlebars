@@ -19,6 +19,9 @@ var hbs = exphbs.create({
         and: function (a, b) { return a&&b; },
         or: function (a, b) { return a || b},
         not: function(a) { return !a; },
+        cutText: function(a, n) {
+            return a.substring(0,n) + '...';
+        },
         includes: function (arr, item) {
             return arr.includes(item);
             },
@@ -41,18 +44,24 @@ app.get('/', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.mainNews = newsModel.generate();
     this.contextVars.secondaryNews = newsModel.generateMultiple(3);
+    this.contextVars.pageCss=['home'];
+    this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('home',this.contextVars);
 });
 
 app.get('/author', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.author = authorModel.generate();
+    this.contextVars.pageCss=['author'];
+    this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('author',this.contextVars);
 });
 
 app.get('/news', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.news = newsModel.generate();
+    this.contextVars.pageCss=['news'];
+    this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('news',this.contextVars);
 });
 
