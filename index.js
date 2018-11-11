@@ -34,7 +34,7 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.set('port', 80);
+app.set('port', process.env.PORT || 5000);
 
 app.use('/views/css/', express.static(__dirname + '/views/css/'));
 app.use('/views/css/page', express.static(__dirname + '/views/css/page/'));
