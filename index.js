@@ -15,7 +15,7 @@ var hbs = exphbs.create({
         eq: function (a, b) { return a == b; },
         neq: function (a, b) { return a != b; },
         lt: function (a, b) { return a < b; },
-        lte: function (a, b) { return a >= b; },
+        lte: function (a, b) { return a <= b; },
         and: function (a, b) { return a&&b; },
         or: function (a, b) { return a || b},
         not: function(a) { return !a; },
@@ -27,6 +27,9 @@ var hbs = exphbs.create({
             },
         substring: function (a, n) {
             return a.substring(0,n);
+        },
+        lookup: function (templateName) {
+            return templateName.toString();
         }
     }
 });
@@ -46,6 +49,7 @@ app.get('/', function (req, res, next) {
     this.contextVars.mainNews = newsModel.generate();
     this.contextVars.secondaryNews = newsModel.generateMultiple(3);
     this.contextVars.pageCss=['home'];
+    this.contextVars.ads= 'widgets/ads';
     this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('home',this.contextVars);
 });
@@ -54,6 +58,7 @@ app.get('/author', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.author = authorModel.generate();
     this.contextVars.pageCss=['author'];
+    this.contextVars.ads= 'widgets/ads';
     this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('author',this.contextVars);
 });
@@ -62,6 +67,7 @@ app.get('/news', function (req, res, next) {
     this.contextVars = {};
     this.contextVars.news = newsModel.generate();
     this.contextVars.pageCss=['news'];
+    this.contextVars.ads= 'widgets/ads';
     this.contextVars.widgetCss=['widget-main-news', 'header', 'footer'];
     res.render('news',this.contextVars);
 });
